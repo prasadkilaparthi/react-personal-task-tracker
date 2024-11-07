@@ -8,14 +8,20 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const Api_key = import.meta.env.VITE_APIKEY;
+const Auth_Domain = import.meta.env.VITE_AUTHDOMAIN;
+const Project_Id = import.meta.env.VITE_PROJECTID;
+const Storage_Bucket = import.meta.env.VITE_STORAGEBUCKET;
+const Messaging_Sender_id = import.meta.env.VITE_MESSAGINSENDERID;
+const App_Id = import.meta.env.VITE_APPID;
+const Measurement_id = import.meta.env.VITE_MEASUREMENTID;
 const firebaseConfig = {
   apiKey: Api_key,
-  authDomain: "react-personal-task-tracker.firebaseapp.com",
-  projectId: "react-personal-task-tracker",
-  storageBucket: "react-personal-task-tracker.firebasestorage.app",
-  messagingSenderId: "87457383127",
-  appId: "1:87457383127:web:0d04a4c33cd5f65de52692",
-  measurementId: "G-CX8V1VNQYD",
+  authDomain: Auth_Domain,
+  projectId: Project_Id,
+  storageBucket: Storage_Bucket,
+  messagingSenderId: Messaging_Sender_id,
+  appId: App_Id,
+  measurementId: Measurement_id,
 };
 
 // Initialize Firebase
