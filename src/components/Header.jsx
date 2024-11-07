@@ -5,44 +5,61 @@ import { auth } from "../FirebaseConfig";
 
 const Header = ({ user }) => {
   const navigate = useNavigate();
+
   const handleLogout = async () => {
     try {
       await signOut(auth);
       navigate("/login");
     } catch (e) {
-      console.log(e.message);
+      console.error("Logout failed:", e.message);
     }
   };
+
   return (
-    <header className="bg-blue-600 p-4 text-white">
-      <nav className="flex justify-between items-center">
-        <div className="text-2xl font-semibold">
-          <Link to="/" className="hover:text-gray-300">
+    <header className="bg-gradient-to-r from-green-400 via-blue-400 to-teal-400 p-5 shadow-md">
+      <nav className="container mx-auto flex justify-between items-center text-white">
+        {/* Logo/Brand */}
+        <div className="text-3xl font-bold">
+          <Link to="/" className="hover:text-gray-200 transition duration-200">
             Task Tracker
           </Link>
         </div>
-        <div>
+        
+        {/* Navigation Links */}
+        <div className="flex items-center space-x-4">
           {user ? (
             <>
-              <Link to="/dashboard" className="mr-4 hover:bg-gray-300">
+              <Link
+                to="/dashboard"
+                className="py-2 px-4 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition duration-300"
+              >
                 Dashboard
               </Link>
-              <Link to="profile" className="mr-4 hover:bg-gray-300">
+              <Link
+                to="/profile"
+                className="py-2 px-4 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition duration-300"
+              >
                 Profile
               </Link>
               <button
                 onClick={handleLogout}
-                className="text-white hover:bg-gray-300"
+                className="py-2 px-4 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-300"
               >
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link to="signup" className="mr-4 hover:text-gray-300">
-                Sign up
+              <Link
+                to="/signup"
+                className="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300"
+              >
+                Sign Up
               </Link>
-              <Link to="login" className="mr-4 hover:text-gray-300">
+              <Link
+                to="/login"
+                className="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300"
+              >
                 Login
               </Link>
             </>

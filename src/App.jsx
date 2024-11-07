@@ -2,6 +2,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
+import Home from "./components/Home";
 import { auth } from "./FirebaseConfig";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
@@ -20,8 +21,9 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header user = {user} />
+        <Header user={user} />
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
