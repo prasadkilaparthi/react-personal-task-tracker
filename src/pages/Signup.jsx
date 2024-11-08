@@ -13,7 +13,6 @@ const Signup = () => {
     e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      alert("Account created successfully!");
       navigate("/login");
       setError("");
     } catch (e) {
